@@ -13,7 +13,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 BOLD='\033[1m' # BOLD
 enable=0
-HOME_DIR=/home/agoston/openssltry/elliptic
+HOME_DIR=/home/agoston/openssltry/thesis_try
 SIGN_HOME=${HOME_DIR}/signed_files
 id
 printf "${BOLD}SWITCHING to openssl app home!${NC}\n"
@@ -50,8 +50,6 @@ read valid
 check_command "Input file generation"
 cat input_files/input.json | python -mjson.tool
 printf "\n${BOLD}Sign the input file${NC}\n"
-openssl dgst -ecdsa-with-SHA1 -sign ${KEY_HOME}/private.pem -out ${SIGN_HOME}/sign.out input.txt
+openssl dgst -ecdsa-with-SHA1 -sign ${KEY_HOME}/private.pem -out ${SIGN_HOME}/sign.out input_files/input.json 
+cat ${SIGN_HOME}/sign.out | openssl enc -base64 | tr --delete "\n" > ${SIGN_HOME}/signb.out
 check_command "Input files sign"
-
-
-

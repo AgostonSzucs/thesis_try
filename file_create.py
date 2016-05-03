@@ -5,5 +5,4 @@ input_array = {'user':sys.argv[1],'rights':sys.argv[2],'validate_time':sys.argv[
 json_format=json.dumps(input_array)
 print 'Argument List:', str(input_array)
 print 'Argument List:', str(json_format)
-f_write = open("/home/agoston/openssltry/elliptic/input_files/input.json","w").write(str(json_format))
-
+f_write = open("/home/agoston/openssltry/thesis_try/input_files/input.json","w").write(str(json_format))
